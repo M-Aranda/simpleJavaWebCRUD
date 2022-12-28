@@ -76,10 +76,30 @@
                 <%}%>
             </tbody>
         </table>
+        <br>
+        <h1>Buscar artista (Read single)</h1>
+        <br>
+        <form action="obtener.do" method="post">
+            <input type="text" name="artist_name" placeholder="Artist name " required >
+            <br>
+            <input type="submit" value="Registrar">
+        </form>
+
+        <%
+            HttpSession ses = request.getSession();
+            Artist a = null;
+            if (ses.getAttribute("a") != null) {
+                a = (Artist) ses.getAttribute("a");%>
+
+        El artista es <%= a.getArtist_name()%>
+        <br>
+        Su cancion más popular es <%= a.getMost_popular_song()%>
+        <br>
+        Su miembro mas popular es <%= a.getMost_popular_member()%>
+        <%}
 
 
-
-
+        %>
 
         <br>
 
